@@ -2,9 +2,9 @@ import React from "react";
 import Employees from "./Employees";
 
 
-function Main() {
+function Main(props) {
   return (
-    <Employees/>
+    <Employees employees={props.employees}/>
   );
 }
 

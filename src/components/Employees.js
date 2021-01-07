@@ -1,27 +1,10 @@
 import React, { Component } from 'react';
-import API from "../utils/API";
 
 
-export class Employees extends Component {
 
-  state = {
-    employees: [],
-    order: "descend",
-    orderedUsers: [{}]
-  }
+function Employees (props) {
 
-  componentDidMount() {
-    API.returnEmployees()
-      .then(res => {
-        this.setState({
-          employees: res.data.results
-        });
-      });
-  };
-
-  render() {
-
-    const employeeList = this.state.employees.map((employee) => {
+    const employeeList = props.employees.map((employee) => {
       return (
         <div className="row">
         <div className="col">
@@ -49,7 +32,7 @@ export class Employees extends Component {
         {employeeList}
       </div>
     );
-  }
+  
 }
 
 export default Employees;
