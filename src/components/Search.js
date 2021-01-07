@@ -3,13 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Search extends React.Component {
   
-  state = { term: '' };
 
-  onSearchSubmit = event => {
-    event.preventDefault();
-
-    console.log("submitted");
-  }
   render(){
   return (
     <div className="Search">
