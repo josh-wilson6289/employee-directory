@@ -1,17 +1,16 @@
 import './App.css';
-import Container from "./components/Container";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header.js";
+import Navbar from "./components/NavBar.js";
+import Main from "./components/Main.js";
 
 function App() {
   return (
     <div className="App">
-     <Container>
+      <div className="container">
         <Navbar />
         <Header/>
         <Main/>
-     </Container>
+    </div>
     </div>
   );
 }
