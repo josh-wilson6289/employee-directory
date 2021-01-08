@@ -29,13 +29,18 @@ class App extends React.Component {
       });
   };
 
+  handleSearch = event => {
+    console.log(event.target.value);
+ 
+  }
+
   render() {
   return (
     <div className="App">
       <div className="container">
-        <Navbar term={this.state.term}/>
+        <Navbar handleSearch={this.handleSearch}/>
         <Header/>
-        <Main employees={this.state.employees}/>
+        <Main employees={this.state.employees} order={this.state.order} orderedUsers={this.state.orderedUsers} term={this.state.term}/>
     </div>
     </div>
     );

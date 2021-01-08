@@ -1,24 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
 function Employees (props) {
 
+    // const filteredEmployees = props.employees.sort((a, b) => a.props.lastName.localeCompare(b.props.lastName));
+
     const employeeList = props.employees.map((employee) => {
+      
+      const name = `${employee.name.first} ${employee.name.last}`
       return (
-        <div className="row">
-        <div className="col">
-          <div className="thumbnail">
-            <img src={employee.picture.thumbnail} alt="employee photo"/>
+        <div className="employee" key={employee.login.uuid}>
+          <div className="row">
+            <div className="col">
+              <div className="thumbnail">
+                  <img src={employee.picture.thumbnail} alt={name}/>
+              </div>
+                  {name}   
+            </div>
+            
+            <div className="col">{employee.phone}</div>
+            <div className="col">{employee.email}</div>
           </div>
-          {`${employee.name.first} ${employee.name.last}`}   
-          </div>
-        <div className="col">{employee.phone}</div>
-        <div className="col">{employee.email}</div>
         </div>
       )
         
     })
+
 
 
     return (
@@ -31,6 +39,7 @@ function Employees (props) {
         <br /> <br />
         {employeeList}
       </div>
+      
     );
   
 }

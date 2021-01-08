@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Search extends React.Component {
+function Search ({ handleSearch }) {
   
 
-  render(){
+
   return (
     <div className="Search">
       
@@ -14,19 +14,19 @@ class Search extends React.Component {
         className="form-control me-2" 
         type="search" placeholder="Search" 
         aria-label="Search"
-        onChange={(event) => this.setState({ term: event.target.value })} 
+        onChange={event => handleSearch(event)} 
       />
 
       <button 
         className="btn btn-outline-success" 
-        value={this.state.term}
-        onSubmit={this.onSearchSubmit}
+        // value={this.state.term}
+        // onSubmit={this.onSearchSubmit}
         type="submit">Search
         </button>
       </form>
     </div>
     );
-  }
+  
 }
 
 export default Search;
