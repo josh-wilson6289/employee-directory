@@ -24,7 +24,7 @@ class App extends React.Component {
     API.returnEmployees()
       .then(res => {
         this.setState({
-          employees: res.data.results
+          employees: res.data.results,
         });
       });
   };
@@ -38,7 +38,7 @@ class App extends React.Component {
       .toLowerCase();
       return values.indexOf(search.toLowerCase()) !== -1;
     });
-    this.setState({ searchedEmployees: searchedEmployees })
+    this.setState({ employees: searchedEmployees })
   }
 
   render() {
@@ -48,9 +48,11 @@ class App extends React.Component {
         <Navbar handleSearch={this.handleSearch}/>
         <Header/>
         <Main employees={this.state.employees} 
+              searchedEmployees={this.state.searchedEmployees}
               order={this.state.order} 
-              orderedUsers={this.state.orderedUsers} 
+              orderedUsers={this.state.searchedEmployees} 
               term={this.state.term}
+
         />
       </div>
     </div>

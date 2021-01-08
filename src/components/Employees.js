@@ -4,7 +4,6 @@ import React from 'react';
 
 function Employees (props) {
 
-    // const filteredEmployees = props.employees.sort((a, b) => a.props.lastName.localeCompare(b.props.lastName));
 
     const employeeList = props.employees.map((employee) => {
       
@@ -26,8 +25,6 @@ function Employees (props) {
       )
         
     })
-
-
 
     return (
       <div className="container">

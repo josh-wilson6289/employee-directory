@@ -16,13 +16,6 @@ function Search ({ handleSearch }) {
         aria-label="Search"
         onChange={event => handleSearch(event)} 
       />
-
-      <button 
-        className="btn btn-outline-success" 
-        // value={this.state.term}
-        // onSubmit={this.onSearchSubmit}
-        type="submit">Search
-        </button>
       </form>
     </div>
     );
