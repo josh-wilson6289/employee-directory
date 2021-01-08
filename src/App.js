@@ -10,7 +10,7 @@ class App extends React.Component {
   state = {
     employees: [],
     order: "descend",
-    orderedUsers: [{}],
+    searchedEmployees: [{}],
     term: ''
   }
 
@@ -31,7 +31,14 @@ class App extends React.Component {
 
   handleSearch = event => {
     console.log(event.target.value);
- 
+    const search = event.target.value;
+    const searchedEmployees = this.state.employees.filter(item => {
+      let values = Object.values(item)
+      .join("")
+      .toLowerCase();
+      return values.indexOf(search.toLowerCase()) !== -1;
+    });
+    this.setState({ searchedEmployees: searchedEmployees })
   }
 
   render() {
@@ -40,8 +47,12 @@ class App extends React.Component {
       <div className="container">
         <Navbar handleSearch={this.handleSearch}/>
         <Header/>
-        <Main employees={this.state.employees} order={this.state.order} orderedUsers={this.state.orderedUsers} term={this.state.term}/>
-    </div>
+        <Main employees={this.state.employees} 
+              order={this.state.order} 
+              orderedUsers={this.state.orderedUsers} 
+              term={this.state.term}
+        />
+      </div>
     </div>
     );
   }
