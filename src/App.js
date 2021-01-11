@@ -25,12 +25,12 @@ class App extends React.Component {
       .then(res => {
         this.setState({
           employees: res.data.results,
+          searchedEmployees: res.data.results
         });
       });
   };
 
   handleSearch = event => {
-    console.log(event.target.value);
     const search = event.target.value;
     const searchedEmployees = this.state.employees.filter(item => {
       let values = Object.values(item)
@@ -38,7 +38,7 @@ class App extends React.Component {
       .toLowerCase();
       return values.indexOf(search.toLowerCase()) !== -1;
     });
-    this.setState({ employees: searchedEmployees })
+    this.setState({ searchedEmployees: searchedEmployees })
   }
 
   render() {
@@ -50,9 +50,6 @@ class App extends React.Component {
         <Main employees={this.state.employees} 
               searchedEmployees={this.state.searchedEmployees}
               order={this.state.order} 
-              orderedUsers={this.state.searchedEmployees} 
-              term={this.state.term}
-
         />
       </div>
     </div>

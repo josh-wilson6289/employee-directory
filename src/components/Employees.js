@@ -2,20 +2,31 @@ import React from 'react';
 
 
 
-function Employees (props) {
+// function Employees (props) {
+//   let employeeList;
+//   let searchedEmployees = props.searchedEmployees;
+  
+//   function handleDisplay(searchedEmployees) {
+//     if (searchedEmployees.length > 0) {
+//       employeeList = searchedEmployees;
+//     } else {
+//       employeeList = props.employees;
+//     }
+//     return employeeList;
+//   }
 
-
-    const employeeList = props.employees.map((employee) => {
-      
-      const name = `${employee.name.first} ${employee.name.last}`
-      return (
+    // handleDisplay();
+  const Employees = (props) => {
+    console.log(props);
+    const employeeList = props.searchedEmployees.map((employee) => {
+        return (
         <div className="employee" key={employee.login.uuid}>
           <div className="row">
             <div className="col">
               <div className="thumbnail">
-                  <img src={employee.picture.thumbnail} alt={name}/>
+                  <img src={employee.picture.thumbnail} alt={`${employee.name.first} ${employee.name.last}`} />
               </div>
-                  {name}   
+                  {`${employee.name.first} ${employee.name.last}`}   
             </div>
             
             <div className="col">{employee.phone}</div>
@@ -23,8 +34,7 @@ function Employees (props) {
           </div>
         </div>
       )
-        
-    })
+    });
 
     return (
       <div className="container">
