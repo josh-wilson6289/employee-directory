@@ -1,38 +1,27 @@
 import React from 'react';
 
-
-
-// function Employees (props) {
-//   let employeeList;
-//   let searchedEmployees = props.searchedEmployees;
-  
-//   function handleDisplay(searchedEmployees) {
-//     if (searchedEmployees.length > 0) {
-//       employeeList = searchedEmployees;
-//     } else {
-//       employeeList = props.employees;
-//     }
-//     return employeeList;
-//   }
-
-    // handleDisplay();
   const Employees = (props) => {
-    console.log(props);
+   
     const employeeList = props.searchedEmployees.map((employee) => {
         return (
-        <div className="employee" key={employee.login.uuid}>
-          <div className="row">
-            <div className="col">
-              <div className="thumbnail">
-                  <img src={employee.picture.thumbnail} alt={`${employee.name.first} ${employee.name.last}`} />
-              </div>
-                  {`${employee.name.first} ${employee.name.last}`}   
-            </div>
+
+          // getting employees, but not searched employees.  must be something with state
+          <img src={employee.picture.thunbnail}></img>
             
-            <div className="col">{employee.phone}</div>
-            <div className="col">{employee.email}</div>
-          </div>
-        </div>
+        
+        // <div className="employee" key={searchedEmployee.login.uuid}>
+        //   <div className="row">
+        //     <div className="col">
+        //       <div className="thumbnail">
+        //           <img src={searchedEmployee.picture.thumbnail} alt={`${searchedEmployee.name.first} ${searchedEmployee.name.last}`} />
+        //       </div>
+        //           {`${searchedEmployee.name.first} ${searchedEmployee.name.last}`}   
+        //     </div>
+            
+        //     <div className="col">{searchedEmployee.phone}</div>
+        //     <div className="col">{searchedEmployee.email}</div>
+        //   </div>
+        // </div>
       )
     });
 

@@ -23,6 +23,7 @@ class App extends React.Component {
   componentDidMount() {
     API.returnEmployees()
       .then(res => {
+        console.log(res);
         this.setState({
           employees: res.data.results,
           searchedEmployees: res.data.results
