@@ -51,6 +51,7 @@ class App extends React.Component {
         <Main employees={this.state.employees} 
               searchedEmployees={this.state.searchedEmployees}
               order={this.state.order} 
+              handleSearch={this.handleSearch}
         />
       </div>
     </div>

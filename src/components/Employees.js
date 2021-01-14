@@ -2,26 +2,24 @@ import React from 'react';
 
   const Employees = (props) => {
    
+
     const employeeList = props.searchedEmployees.map((employee) => {
         return (
 
-          // getting employees, but not searched employees.  must be something with state
-          <img src={employee.picture.thunbnail}></img>
+     
+        <div className="employee" key={employee.login.uuid}>
+          <div className="row">
+            <div className="col">
+              <div className="thumbnail">
+                  <img src={employee.picture.thumbnail} alt={`${employee.name.first} ${employee.name.last}`} />
+              </div>
+                  {`${employee.name.first} ${employee.name.last}`}   
+            </div>
             
-        
-        // <div className="employee" key={searchedEmployee.login.uuid}>
-        //   <div className="row">
-        //     <div className="col">
-        //       <div className="thumbnail">
-        //           <img src={searchedEmployee.picture.thumbnail} alt={`${searchedEmployee.name.first} ${searchedEmployee.name.last}`} />
-        //       </div>
-        //           {`${searchedEmployee.name.first} ${searchedEmployee.name.last}`}   
-        //     </div>
-            
-        //     <div className="col">{searchedEmployee.phone}</div>
-        //     <div className="col">{searchedEmployee.email}</div>
-        //   </div>
-        // </div>
+            <div className="col">{employee.phone}</div>
+            <div className="col">{employee.email}</div>
+          </div>
+        </div>
       )
     });
 
